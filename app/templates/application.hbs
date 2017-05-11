@@ -1,0 +1,35 @@
+{{!-- The following component displays Ember's default welcome message. --}}
+{{!-- Feel free to remove this! --}}
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+    </div>
+
+    <div class="collapse navbar-collapse" id="menu-collapse">
+      <ul class="nav navbar-nav" >
+        <li>{{ link-to 'Home' 'index' }}</li>
+
+        <li >{{ link-to 'Pricing' 'pricing' }}</li>
+
+        <li>{{ link-to 'Contact' 'contact' }}</li>
+
+        <li>{{ link-to 'Login' 'login' }}</li>
+
+          <!-- {{#if session isAuthenticated}}
+            <li><button {{action 'logout'}}>Logout</button></li>
+          {{else}} -->
+          <!-- {{/if}} -->
+
+      </ul>
+
+
+
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  {{outlet}}
+</div>
