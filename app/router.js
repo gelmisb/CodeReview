@@ -7,6 +7,14 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('pricing');
+  this.route('register');
+  this.route('login');
+  this.route('tnc');
+  this.route('contact');
+  this.route('account');
+  // this.route('account', { path: '/account/:user_id' });
+  this.route('submission');
 });
 
 export default Router;

@@ -1,0 +1,52 @@
+
+<h1 class="cover-heading">Please login</h1>
+<div id="mainLogg">
+  <section>
+
+    <form>
+
+    <table>
+    <br>
+      <tr>
+        <td>
+          <label>Username:</label>
+          <!-- <input type="text" name="username" id="username"> -->
+          {{input value=username type="text"}}
+        </td>
+      </tr>
+
+
+    <br>
+
+      <tr>
+        <td>
+          <label>Password:</label>
+          <!-- <input type="password" name="password" id="password"> -->
+          {{input value=password type="password"}}
+
+        </td>
+      </tr>
+
+
+    <br>
+
+    <div class="btn btn-primary" {{action 'login'}}>Login</div>
+    </table>
+
+    </form>
+
+  </section>
+
+  <hr>
+
+  <section style="text-align=center;">
+      <h2>Don't have an account yet?</h2>
+
+      <button style="text-align=center;">{{#link-to 'register' }}Register{{/link-to}}</button>
+
+  </section>
+
+
+</div>
+
+  {{outlet}}
