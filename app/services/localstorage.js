@@ -32,7 +32,7 @@ export default Ember.Service.extend({
       if(user && user.password === password){
         alert('Thank you for loggin in ' + username);
            window.codeReview = 'user';
-           this.set('currentUser', user)
+           this.set('currentUser', username)
            return true;
        } else {
         alert('Sorry invalid username or password!')

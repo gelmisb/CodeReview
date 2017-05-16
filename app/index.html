@@ -8,21 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{content-for "head"}}
-
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.2.0/codemirror.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.2.0/codemirror.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
+    <script src="http://builds.emberjs.com/tags/v1.5.1/ember.js"></script>
     <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link rel="stylesheet" href="{{rootURL}}assets/code-review.css">
-    <link rel="stylesheet" href="vendor/CodeMirrorAPI/codemirror.css">
+
+    <link rel="stylesheet" href="codeMirror/codemirror.css">
 
     {{content-for "head-footer"}}
   </head>
+
   <body>
     {{content-for "body"}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/code-review.js"></script>
 
-    <script src="vendor/CodeMirrorAPI/codemirror.js"></script>
-    <script src="vendor/CodeMirrorAPI/javascript/javascript.js"></script>
+    <script src="codeMirror/codemirror.js"></script>
+    <!-- <script src="codeMirror/javascript/javascript.js"></script> -->
+
     {{content-for "body-footer"}}
   </body>
 </html>

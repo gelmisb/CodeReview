@@ -1,4 +1,5 @@
-<h1>Welcome to your account {{username}}</h1>
+
+<h1>Welcome to your account {{localStorage.currentUser}}</h1>
 
 <p style="text-align=center;">
   Here you can edit your details, submit and evaluate your code.
@@ -6,23 +7,6 @@
   <i>Happy Coding!</i>
 </p>
 
-
-<div id="subButton">
-
-  <a href="#" id="pressSub" {{action 'submitCode'}}>
-      Submit Code!
-  </a>
-
-</div>
-
-
-
-<div id="showCodeMirror">
-
-  <script>
-    var myCodeMirror = CodeMirror(document.body);
-  </script>
-
-</div>
+{{code-editor callMirror}}
 
 {{outlet}}
