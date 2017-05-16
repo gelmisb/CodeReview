@@ -82,6 +82,28 @@ nav ul li a:hover {
 
 
 
+.btn {
+  background-color: #66b3ff;
+  font-size: 20px;
+  text-align: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2%;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #0066cc;
+  transition: 0.5s;
+}
+
+.reg-btn a{
+  background-color: #66b3ff;
+  text-decoration: none !important;
+
+}
 #mainLogg {
   display: flex;
 }

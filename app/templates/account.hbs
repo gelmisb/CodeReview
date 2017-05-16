@@ -9,18 +9,17 @@
 
 
 
-
-<button id="subButton" class="displays-text-editor">
-  Review Code
+<button id="subButton" class="btn displays-text-editor">
+  Edit Code
 </button>
 
 
-
 <div id="showCodeMirror" hidden class="hidden-code-editor">
+  <h2>Submission in-progress</h2>
+
   {{code-editor}}
 
-  <button id="submit-button" {{action 'addCode'}}>Submit</button>
-
+  <button id="submit-button" >{{#link-to 'submission'}}Submit{{/link-to}}</button>
 </div>
 
 <script>

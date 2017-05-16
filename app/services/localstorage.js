@@ -43,7 +43,7 @@ export default Ember.Service.extend({
       }
     },
 
-    
+
 
     // ------------------------------
     // Methods for storing user's submitted code and reviewing it
@@ -62,6 +62,15 @@ export default Ember.Service.extend({
       codeStore.addObject({username:username, myTextarea:myTextarea});
 
       localStorage.setItem(this.codeStoreKey, JSON.stringify(codeStore));
+    },
+
+
+    getCode() {
+      var codeStore = this.getCode();
+
+      var code = codeStore.findBy('myTextarea', myTextarea);
+
+      return code;
     }
 
 });

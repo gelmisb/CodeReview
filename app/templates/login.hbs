@@ -3,7 +3,7 @@
 <div id="mainLogg">
   <section>
 
-    <form>
+    <form class="main-login-form">
 
     <table>
     <br>
@@ -29,8 +29,9 @@
 
     <br>
 
-    <div class="btn btn-primary" {{action 'login'}}>Login</div>
     </table>
+
+      <div class="btn btn-primary" {{action 'login'}}>Login</div>
 
     </form>
 
@@ -41,7 +42,7 @@
   <section style="text-align=center;">
       <h2>Don't have an account yet?</h2>
 
-      <button style="text-align=center;">{{#link-to 'register' }}Register{{/link-to}}</button>
+      <div class="reg-btn">{{#link-to 'register' }}Register{{/link-to}}</div>
 
   </section>
 
