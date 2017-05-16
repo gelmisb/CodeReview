@@ -3,9 +3,14 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
   tagName: 'textarea',
+  // className: 'myTextarea',
 
-    callMirror: function(){
-      var myCodeMirror = CodeMirror.fromTextArea(myTextArea);
+  didInsertElement() {
+    this._super(...arguments);
+    var editor = this.$()[0];
+    var myCodeMirror = CodeMirror.fromTextArea(editor,{
+      lineNumbers: true,
+    });
   }
 
 });

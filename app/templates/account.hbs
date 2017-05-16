@@ -7,6 +7,24 @@
   <i>Happy Coding!</i>
 </p>
 
-{{code-editor callMirror}}
+
+
+
+<button id="subButton" class="displays-text-editor">
+  Show Code
+</button>
+
+
+
+<div id="showCodeMirror" hidden class="hidden-code-editor">
+  {{code-editor callMirror}}
+
+</div>
+
+<script>
+$("#subButton").click(function(){
+    $("#showCodeMirror").toggle(0);
+});
+</script>
 
 {{outlet}}

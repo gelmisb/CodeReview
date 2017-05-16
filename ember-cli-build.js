@@ -5,8 +5,6 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     // Add options here
 
-    app.import('vendor/codeMirror/codemirror.js');
-    app.import('vendor/codeMirror/codemirror.css');
   });
 
   // Use `app.import` to add additional libraries to the generated
