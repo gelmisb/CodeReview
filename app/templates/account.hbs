@@ -17,13 +17,14 @@
 
 
 <div id="showCodeMirror" hidden class="hidden-code-editor">
-  {{code-editor callMirror}}
+  {{code-editor}}
 
 </div>
 
 <script>
 $("#subButton").click(function(){
-    $("#showCodeMirror").toggle(0);
+    $("#showCodeMirror").show(500);
+    $("#subButton").hide(800);
 });
 </script>
 

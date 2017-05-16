@@ -10,6 +10,9 @@ export default Ember.Component.extend({
     var editor = this.$()[0];
     var myCodeMirror = CodeMirror.fromTextArea(editor,{
       lineNumbers: true,
+      theme: 'ambiance',
+      firstLineNumber: 1,
+      mode: 'javascript',
     });
   }
 
