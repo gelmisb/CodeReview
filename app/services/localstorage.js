@@ -3,7 +3,11 @@ import Ember from 'ember';
 export default Ember.Service.extend({
 
     userStoreKey: 'users',
+    codeStoreKey: 'code',
     currentUser: null,
+
+    // ------------------------------
+    // User methods for local storage
 
     getusers(){
       var userStoreStr = localStorage.getItem(this.userStoreKey);
@@ -37,5 +41,27 @@ export default Ember.Service.extend({
        } else {
         alert('Sorry invalid username or password!')
       }
+    },
+
+    
+
+    // ------------------------------
+    // Methods for storing user's submitted code and reviewing it
+    getCode(){
+      var codeStoreStr = localStorage.getItem(this.codeStoreKey);
+      if(codeStoreStr){
+        return JSON.parse(codeStoreStr);
+      } else {
+        return [];
+      }
+    },
+
+    addCode(username, myTextarea){
+      var codeStore = this.getCode();
+
+      codeStore.addObject({username:username, myTextarea:myTextarea});
+
+      localStorage.setItem(this.codeStoreKey, JSON.stringify(codeStore));
     }
+
 });

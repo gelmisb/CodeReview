@@ -11,7 +11,7 @@
 
 
 <button id="subButton" class="displays-text-editor">
-  Show Code
+  Review Code
 </button>
 
 
@@ -19,13 +19,15 @@
 <div id="showCodeMirror" hidden class="hidden-code-editor">
   {{code-editor}}
 
+  <button id="submit-button" {{action 'addCode'}}>Submit</button>
+
 </div>
 
 <script>
-$("#subButton").click(function(){
-    $("#showCodeMirror").show(500);
-    $("#subButton").hide(800);
-});
+  $("#subButton").click(function(){
+      $("#showCodeMirror").show(500);
+      $("#subButton").hide(800);
+  });
 </script>
 
 {{outlet}}
