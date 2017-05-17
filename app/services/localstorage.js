@@ -5,6 +5,7 @@ export default Ember.Service.extend({
     userStoreKey: 'users',
     codeStoreKey: 'code',
     currentUser: null,
+    session: Ember.inject.service('session'),
 
     // ------------------------------
     // User methods for local storage
@@ -30,19 +31,19 @@ export default Ember.Service.extend({
 
     login(username, password){
       var userStore = this.getusers();
-
+      var session = this.get('session');
       var user = userStore.findBy('username', username);
 
       if(user && user.password === password){
-        alert('Thank you for loggin in ' + username);
-           window.codeReview = 'user';
-           this.set('currentUser', username)
-           return true;
+           session.set('currentUser', username);
+           alert('Thank you for logging in ' + session.currentUser);
+
+           console.log(session.currentUser);
+           return session.currentUser;
        } else {
         alert('Sorry invalid username or password!')
       }
     },
-
 
 
     // ------------------------------
@@ -57,15 +58,17 @@ export default Ember.Service.extend({
     },
 
     addCode(username, myTextarea){
-      var codeStore = this.getCode();
+      var session = this.get('session');
 
-      codeStore.addObject({username:username, myTextarea:myTextarea});
+      session.set('currentCode', myTextarea);
 
-      localStorage.setItem(this.codeStoreKey, JSON.stringify(codeStore));
+      console.log(session.currentCode);
+
+      return session.currentCode;
     },
 
 
-    getCode() {
+    getCodes() {
       var codeStore = this.getCode();
 
       var code = codeStore.findBy('myTextarea', myTextarea);

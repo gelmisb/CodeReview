@@ -1,32 +1,45 @@
 
-<h1>Welcome to your account {{localStorage.currentUser}}</h1>
+{{#if session.currentUser}}
 
-<p style="text-align=center;">
-  Here you can edit your details, submit and evaluate your code.
-  <br>
+<h1 class="cover-heading">Welcome to your account {{session.currentUser}}</h1>
+
+<p style="text-align:left;">
   <i>Happy Coding!</i>
+  <br><br>
 </p>
 
-
-
-<button id="subButton" class="btn displays-text-editor">
+<button id="subButton" style="width:100%"class="btn displays-text-editor">
   Edit Code
 </button>
 
-
-<div id="showCodeMirror" hidden class="hidden-code-editor">
+<div id="showCodeMirror">
   <h2>Submission in-progress</h2>
-
-  {{code-editor}}
-
-  <button id="submit-button" >{{#link-to 'submission'}}Submit{{/link-to}}</button>
+      {{code-editor value=contents}}
+   <button id="submit-button" {{action 'getMirrorCode'}}>Submit</button>
 </div>
 
 <script>
+  $("#showCodeMirror").hide(10);
+
   $("#subButton").click(function(){
       $("#showCodeMirror").show(500);
-      $("#subButton").hide(800);
+      $("#subButton").hide(600);
   });
 </script>
+
+
+{{else}}
+
+  <div id="error">
+
+    <img src="images/no.png">
+
+    <h1>Please login</h1>
+
+    <h2> to access your account! </h2>
+
+  </div>
+
+{{/if}}
 
 {{outlet}}

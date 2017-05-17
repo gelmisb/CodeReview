@@ -1,33 +1,40 @@
 {{!-- The following component displays Ember's default welcome message. --}}
 {{!-- Feel free to remove this! --}}
-
+{{#if session.currentUser }}
+  <div id="user-login">Welcome, {{#link-to 'account'}} {{session.currentUser}} {{/link-to}}</div>
+{{/if}}
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-
-    </div>
-
-    <div class="collapse navbar-collapse" id="menu-collapse">
-      <ul class="nav navbar-nav" >
-        <li>{{ link-to 'Home' 'index' }}</li>
-
-        <li >{{ link-to 'Pricing' 'pricing' }}</li>
-
-        <li>{{ link-to 'Contact' 'contact' }}</li>
 
 
-          {{#if localStorage.currentUser }}
-            <li>Welcome, {{#link-to 'account'}} {{localStorage.currentUser}} {{/link-to}} <button {{action 'logout'}}>Logout</button></li>
-          {{else}}
-            <li>{{ link-to 'Login' 'login' }}</li>
-          {{/if}}
+    <ul class="nav navbar-nav" >
 
-      </ul>
+      <li>{{ link-to 'Home' 'index' }}</li>
 
-    </div>
-  </div>
+      <li >{{ link-to 'Pricing' 'pricing' }}</li>
+
+      <li>{{ link-to 'Contact' 'contact' }}</li>
+
+      {{#if session.currentUser }}
+
+        <li><div {{action 'logout'}} id="log">Logout</div></li>
+
+      {{else}}
+
+        <li>{{ link-to 'Login' 'login' }}</li>
+
+      {{/if}}
+
+    </ul>
+
 </nav>
 
 <div class="container">
   {{outlet}}
 </div>
+
+
+<footer>
+      {{ link-to 'Terms & Conditions' 'tnc' }}
+
+ <a href="http://www.teradev.ie/" target="_blank"><img src="images/logo.png"></a>
+</footer>

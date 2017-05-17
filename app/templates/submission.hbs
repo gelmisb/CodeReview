@@ -1,17 +1,20 @@
 
-<h2>Thank you for submitting your code</h2>
-<h3 style="text-align: center">Please review it below</h3>
+<h2>Completed!</h2>
+<h3 style="text-align: center">{{session.currentUser}}, your code will be now reviewed</h3>
 
-<div class="submitted-code-review">
+<!-- <button type="submit" {{action 'updateValue'}}>Show review</button> -->
 
-<textarea placeholder="{{code.myTextarea}}">
-{{code.myTextarea}}
+<div id="current-code-field" class="submitted-code-review">
 
+  {{code-editor }}
 
-</textarea>
+  {{contents}}
 
-
-
+  <textfield contenteditable="false" id="review-field">
+      {{session.currentCode}}
+  </textfield>
+    <!-- {{code-editor value=contents}} -->
 </div>
+<!-- {{contents}} -->
 
 {{outlet}}
