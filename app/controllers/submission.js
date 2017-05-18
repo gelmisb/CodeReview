@@ -9,15 +9,23 @@ export default Ember.Controller.extend({
 
   // Actions
   actions: {
-    updateValue: function(){
 
-      /***THIS IS FOR FUTURE REFFERENCE***/
-      // var self = this;
-      // var session = this.get('session');
-      // var content = $(".myTextarea").val();
-      // var codemirror = $('.CodeMirror')[0].CodeMirror;
-      // var text = editor.getValue(content + '/n');
-      
+    // To sub code into the editor when the button is clicked
+    updateValue() {
+
+      // Initialising a session
+      var session = this.get('session');
+
+      // Getting content from the previous instance
+      var content = $(".myTextarea").val();
+
+      // Calling the editor
+      var editor = $('.CodeMirror')[0].CodeMirror;
+
+      // Setting a new editor's valuefrom the stored session
+      var text = editor.setValue(session.currentCode);
+
     },
- },
+  },
+
 });

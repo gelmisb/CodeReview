@@ -13,22 +13,15 @@ export default Ember.Controller.extend({
       var session = this.get('session');
       var content = $(".myTextarea").val();
       var editor = $('.CodeMirror')[0].CodeMirror;
-      var text = editor.getValue(content + '/n');
+      var text = editor.getValue(content);
       var username1 = 'common';
 
       let {username, myTextarea} = this.getProperties(username1, text);
 
       if(this.get('localStorage').addCode(username1, text)){
-        // editor = $('.CodeMirror')[0].CodeMirror;
-        //  $(".myTextarea").val(text);
-        //  editor.setValue(this.text);
-        // var editor = CodeMirror.fromTextArea(document.getElementById("myTextarea"), {
-        //   lineNumbers: true,
-        //   mode: "text/html",
-        //   matchBrackets: true
-        // });
         this.transitionToRoute('submission');
       }
+      return text;
     },
 
   }

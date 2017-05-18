@@ -36,8 +36,6 @@ export default Ember.Service.extend({
 
       if(user && user.password === password){
            session.set('currentUser', username);
-           alert('Thank you for logging in ' + session.currentUser);
-
            console.log(session.currentUser);
            return session.currentUser;
        } else {

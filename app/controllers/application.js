@@ -7,12 +7,18 @@ export default Ember.Controller.extend({
 
   // Calling actions
   actions: {
+
     logout(){
+
       // Calling session
       var session = this.get('session');
-      // Re-setting session vaiables
+
+      // Re-setting session vaiables to null
       session.set('currentUser', null);
+
+      // Nulling code
       session.set('currentCode', null);
+      
       // And sending the user to initial root, which is index
       this.transitionToRoute('index');
     },

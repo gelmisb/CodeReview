@@ -9,13 +9,12 @@ export default Ember.Component.extend({
   // Classname so it could be recognised
   className: 'myTextarea',
 
-
   // Helps initialising libraries and components
   didInsertElement() {
 
     // Calling self
     var self = this;
-    // this._super(...arguments);
+    this._super(...arguments);
 
     // Setting ediitor to be this instance
     var editor = this.$()[0];
@@ -32,9 +31,6 @@ export default Ember.Component.extend({
 
     this.set("editor", myCodeMirror);
   },
-  init(){
-    this._super(...arguments);
 
-  }
 
 });

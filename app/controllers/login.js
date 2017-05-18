@@ -9,6 +9,8 @@ export default Ember.Controller.extend({
 
   // initialising action methods
   actions: {
+
+    // Method for logging users in
     login(){
 
       // Calling session
@@ -20,8 +22,9 @@ export default Ember.Controller.extend({
       // Getting the localstorage service and sending wanted parameters to its method for processing
       if(this.get('localStorage').login(username, password)){
 
-        // Then opening acces to the account root
-        this.transitionToRoute('account');
+      // Then opening acces to the account root
+      this.transitionToRoute('account');
+
       }
     },
   },
