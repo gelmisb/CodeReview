@@ -13,7 +13,6 @@ Router.map(function() {
   this.route('tnc');
   this.route('contact');
   this.route('account');
-  // this.route('account', { path: '/account/:user_id' });
   this.route('submission');
 });
 

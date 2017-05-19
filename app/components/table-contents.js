@@ -11,27 +11,31 @@ export default Ember.Component.extend({
   // Classname so it could be recognised
   className: 'row',
 
-  // Helps initialising libraries and components
-  didInsertElement() {
 
-    // Arguments for initialising
-    this._super(...arguments);
-
-    var userStore = this.get('localStorage').getusers();
-
-    // var users = this.get('localStorage').getusers();
-    var users = 'user';
-
-    var users2 = this.get('localStorage').getProperties(JSON.stringify(userStore));
-
-    console.log(users);
-    console.log(users2);
-
-
-    return users;
-
-    // return new Array(parseInt(users));
-
-  },
+  // // Helps initialising libraries and components
+  // didReceiveAttrs() {
+  //
+  //   // Arguments for initialising
+  //   this._super(...arguments);
+  //
+  //   var userStore = this.get('localStorage').getusers();
+  //
+  //   var users = this.get('localStorage').getusers("users");
+  //
+  //   // users.forEach(function(item) {
+  //   //   console.log(item.username);
+  //   //   item.username;
+  //   // }, users)
+  //
+  //
+  //
+  //   console.log(users);
+  //
+  //
+  //   return users;
+  //
+  //   // return new Array(parseInt(users));
+  //
+  // },
 
 });

@@ -6,4 +6,5 @@ localStorage: Ember.inject.service('localstorage');
 export default Ember.Route.extend({
 
 
+
 });

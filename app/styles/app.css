@@ -4,7 +4,9 @@
 
 html {
   box-shadow: inset  0px 30px 50px #b3d1ff;
+
   padding: 10%;
+  padding-top: 2%;
 }
 html,
 body {
@@ -15,6 +17,7 @@ body {
     color: #2e2e2e;
     overflow: auto;
     font-family: 'Raleway', sans-serif;
+
 }
 
 h1,
@@ -30,6 +33,15 @@ h2 {
 .cover-second-heading {
     text-align: left;
     font-size: 24px;
+}
+
+#special-heading {
+  font-size: 80px;
+  text-align: center;
+  border-bottom: 2px solid #4881ea;
+  padding-bottom: 5%;
+  font-family: 'Raleway', sans-serif;
+
 }
 
 
@@ -340,6 +352,44 @@ nav ul li a:hover {
   border-radius: 5px;
 }
 
+#text-title {
+  text-align: center;
+}
+
+
+/*---------------Table page in account ---------------*/
+
+#contents table {
+  border-collapse: collapse;
+
+}
+
+#contents table th{
+  border-bottom: 2px solid #4881ea;
+  margin-bottom: 20px;
+  background-color: #4881ea;
+  padding: 1%;
+  text-align: center;
+
+}
+
+#contents table td {
+  padding: 2%;
+  border-bottom: 2px solid #76a0ef;
+
+}
+
+#contents table tr {
+  background: transparent;
+  transition: 0.5s
+}
+
+#contents table tr:hover {
+  background: rgba(153, 153, 153, .5);
+  transition: 0.5s
+
+}
+
 
 #review-field {
   word-wrap: break-word;
@@ -362,9 +412,8 @@ nav ul li a:hover {
 footer {
   margin-top: 2%;
   border-radius: 5px;
-  border-top: 1px solid #232323;
   padding: 2%;
-  text-align: right;
+  text-align: center;
 }
 
 footer a {

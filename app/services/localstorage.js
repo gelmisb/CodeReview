@@ -55,23 +55,37 @@ export default Ember.Service.extend({
       }
     },
 
-    addCode(username, myTextarea){
+    addCode(username, myTextarea, title, time){
       var session = this.get('session');
+      var codeStore = this.getCode();
+
+      codeStore.addObject({username:username, myTextarea:myTextarea, title:title, time:time});
+
+      localStorage.setItem(this.codeStoreKey, JSON.stringify(codeStore));
 
       session.set('currentCode', myTextarea);
 
-      console.log(session.currentCode);
+      session.set('currentTitle', title);
 
-      return session.currentCode;
+
+      console.log(myTextarea + ' --- code');
+      console.log(username + ' --- user');
+      console.log(title + ' --- title');
+      console.log(time + ' --- time');
+
+
+      return session.currentCode && session.currentCode ;
     },
 
-
-    getCodes() {
+    modify(title){
       var codeStore = this.getCode();
 
-      var code = codeStore.findBy('myTextarea', myTextarea);
+      var code = codeStore.findBy(title)
 
-      return code;
+      console.log(code);
+
+
     }
+
 
 });

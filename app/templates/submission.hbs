@@ -2,22 +2,17 @@
 <h2>Submitted!</h2>
 
 <p style="color: #787878; text-align:center;">
-  {{session.currentUser}}, your code has been submitted and can now be reviewed below
+  <b>{{session.currentUser}}</b>, your code has been submitted and can now be reviewed below
 </p>
 <div style="text-align:center;">
   <button  {{action 'updateValue'}} id="updateClicked">Show review</button>
 </div>
 
+
 <div id="current-code-field" class="submitted-code-review" >
+  {{session.currentTitle}}
 
-  {{code-editor }}
-
-  {{contents}}
-
-  <textfield contenteditable="false" id="review-field">
-
-  </textfield>
-
+  {{code-editor}}
 </div>
 
 {{outlet}}

@@ -1,7 +1,7 @@
 
 {{#if session.currentUser}}
 
-<h1 class="cover-heading">Welcome to your account {{session.currentUser}}</h1>
+<h1 class="cover-heading">Welcome to your account <span style="color:red">{{session.currentUser}}</span></h1>
 
 <p style="text-align:left;">
   <i>Happy Coding!</i>
@@ -12,8 +12,9 @@
 
   <table>
 
+<thead>
     <tr>
-      
+
       <th>
         Username
       </th>
@@ -30,10 +31,47 @@
         Time Submitted
       </th>
 
+      <th>
+        Modify
+      </th>
+
+      <th>
+        Remove
+      </th>
+
     </tr>
+</thead>
 
-    {{table-contents}}
+<tbody>
 
+    {{#each model as |item|}}
+    <tr>
+      <td>
+        {{item.username}}
+      </td>
+
+      <td>
+        {{item.title}}
+      </td>
+
+      <td style="font-family: 'Source Code Pro', monospace;">
+        {{item.myTextarea}}
+      </td>
+
+      <td>
+        {{item.time}}
+      </td>
+
+      <td>
+        <button {{action 'modifyCode'}}>Edit</button>
+      </td>
+
+      <td>
+        <button {{action 'remove'}}>Delete</button>
+      </td>
+    </tr>
+    {{/each}}
+</tbody>
   </table>
 
 </div>
@@ -45,11 +83,25 @@
   Edit Code
 </button>
 
+
+
 <div id="showCodeMirror">
   <h2>Submission in-progress</h2>
-      {{code-editor value=contents}}
-   <button id="submit-button" {{action 'getMirrorCode'}}>Submit</button>
+
+  <div id="text-title">
+
+    <span>Give it a title</span>
+    {{input value=title type="text" placeholder="Enter Title"}}
+
+  </div>
+
+  {{code-editor value=contents}}
+
+ <button id="submit-button" {{action 'getMirrorCode'}}>Submit</button>
+
 </div>
+
+
 
 <script>
   $("#showCodeMirror").hide(10);

@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
 
       // Nulling code
       session.set('currentCode', null);
-      
+
       // And sending the user to initial root, which is index
       this.transitionToRoute('index');
     },

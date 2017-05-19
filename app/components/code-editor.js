@@ -3,6 +3,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
+  session: Ember.inject.service('session'),
+
   // Setting tagname for the component
   tagName: 'textarea',
 
@@ -11,6 +13,8 @@ export default Ember.Component.extend({
 
   // Helps initialising libraries and components
   didInsertElement() {
+
+    var session = this.get('session');
 
     // Calling self
     var self = this;
