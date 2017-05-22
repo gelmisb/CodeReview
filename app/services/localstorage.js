@@ -39,7 +39,7 @@ export default Ember.Service.extend({
            console.log(session.currentUser);
            return session.currentUser;
        } else {
-        alert('Sorry invalid username or password!')
+         console.log('Sorry invalid username or password!');
       }
     },
 
@@ -77,15 +77,30 @@ export default Ember.Service.extend({
       return session.currentCode && session.currentCode ;
     },
 
-    modify(title){
+
+    modify(text){
+      var session = this.get('session');
       var codeStore = this.getCode();
+      var code = codeStore.findBy('title', session.currentTitle);
 
-      var code = codeStore.findBy(title)
+      codeStore.removeObject(code);
 
-      console.log(code);
+      localStorage.setItem(this.codeStoreKey, JSON.stringify(codeStore));
 
+      console.log(text);
 
-    }
+    },
 
+    removeCurrentObejct(title){
+      var codeStore = this.getCode();
+      var code = codeStore.findBy('title', title);
+
+      codeStore.removeObject(code);
+
+      localStorage.setItem(this.codeStoreKey, JSON.stringify(codeStore));
+
+      console.log(title);
+
+    },
 
 });

@@ -3,85 +3,27 @@
 
 <h1 class="cover-heading">Welcome to your account <span style="color:red">{{session.currentUser}}</span></h1>
 
-<p style="text-align:left;">
-  <i>Happy Coding!</i>
-  <br><br>
-</p>
-
-<div id="contents" class="table-contents">
-
-  <table>
-
-<thead>
-    <tr>
-
-      <th>
-        Username
-      </th>
-
-      <th>
-        Title
-      </th>
-
-      <th>
-        Content
-      </th>
-
-      <th>
-        Time Submitted
-      </th>
-
-      <th>
-        Modify
-      </th>
-
-      <th>
-        Remove
-      </th>
-
-    </tr>
-</thead>
-
-<tbody>
-
-    {{#each model as |item|}}
-    <tr>
-      <td>
-        {{item.username}}
-      </td>
-
-      <td>
-        {{item.title}}
-      </td>
-
-      <td style="font-family: 'Source Code Pro', monospace;">
-        {{item.myTextarea}}
-      </td>
-
-      <td>
-        {{item.time}}
-      </td>
-
-      <td>
-        <button {{action 'modifyCode'}}>Edit</button>
-      </td>
-
-      <td>
-        <button {{action 'remove'}}>Delete</button>
-      </td>
-    </tr>
-    {{/each}}
-</tbody>
-  </table>
-
-</div>
+  <p style="text-align:left;">
+    <i>Happy Coding!</i>
+    <br><br>
+  </p>
 
 
+  <div id="btnFlex">
 
+    <section>
+      <button id="subButton" style="width:100%"class="btn displays-text-editor">
+        Submit Code
+      </button>
+    </section>
 
-<button id="subButton" style="width:100%"class="btn displays-text-editor">
-  Edit Code
-</button>
+    <section>
+      <button id="previous-button" style="width:100%"class="btn displays-text-editor">
+        Previous submissions
+      </button>
+    </section>
+
+  </div>
 
 
 
@@ -98,7 +40,6 @@
   {{code-editor value=contents}}
 
  <button id="submit-button" {{action 'getMirrorCode'}}>Submit</button>
-
 </div>
 
 
@@ -108,9 +49,94 @@
 
   $("#subButton").click(function(){
       $("#showCodeMirror").show(500);
-      $("#subButton").hide(600);
+      $("#contents").hide(500);
+      $("#previous-button").show(500);
   });
+
+
+  $("#previous-button").click(function(){
+      $("#showCodeMirror").hide(500);
+      $("#subButton").show(500);
+      $("#contents").show(500);
+  });
+
 </script>
+
+
+
+<div id="contents" class="table-contents" hidden>
+  <h2>Previous submissions</h2>
+
+  <table>
+
+    <thead>
+        <tr>
+
+          <th>
+            Username
+          </th>
+
+          <th>
+            Title
+          </th>
+
+          <th>
+            Content
+          </th>
+
+          <th>
+            Time Submitted
+          </th>
+
+          <th>
+            Modify
+          </th>
+
+          <th>
+            Remove
+          </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {{#each model as |item|}}
+
+          <tr>
+
+              <td>
+                {{item.username}}
+              </td>
+
+              <td>
+                {{item.title}}
+              </td>
+
+              <td style="font-family: 'Source Code Pro', monospace;">
+                {{item.myTextarea}}
+              </td>
+
+              <td>
+                {{item.time}}
+              </td>
+
+              <td>
+                <button {{action 'modifyCode' item.title}}>Edit</button>
+              </td>
+
+              <td>
+                <button {{action 'deleteThis'  item.title}}>Delete</button>
+              </td>
+
+          </tr>
+
+        {{/each}}
+    </tbody>
+
+  </table>
+
+</div>
 
 
 {{else}}

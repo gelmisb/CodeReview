@@ -12,7 +12,7 @@ export default Ember.Route.extend({
 
     var code = this.get('localStorage').getCode("code");
 
-    return code;
+    return  code;
 
   }
 

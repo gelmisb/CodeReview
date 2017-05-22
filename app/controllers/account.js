@@ -17,9 +17,6 @@ export default Ember.Controller.extend({
 
       var username1 = session.currentUser;
 
-      // var dt = new Date();
-      // var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
-
       var currentdate = new Date();
       var time = "Now: " + currentdate.getDate() + "/"
                   + (currentdate.getMonth()+1)  + "/"
@@ -32,24 +29,43 @@ export default Ember.Controller.extend({
 
       if(this.get('localStorage').addCode(username1, text, title, time)){
         this.transitionToRoute('submission');
+        session.set('submitted', true);
       }
+
       return text;
     },
 
-    // modifyCode(){
-    //
-    //   console.log(title);
-    //   // this.get('localStorage').modify(title);
-    // },
+    modifyCode(title){
+      var session = this.get('session');
 
-    remove(){
+      this.transitionToRoute('edit');
 
-      let {title} = this.getProperties('title');
+      var localStorage = this.get('localStorage');
 
-      // var codeType = this.getProperties(title);
+      var codeStore = localStorage.getCode();
 
-      console.log(title);
-      // this.get('localStorage').modify(title);
+      var code = codeStore.findBy('title', title);
+
+      session.set('editCode', code.myTextarea);
+
+      session.set('currentTitle', code.title);
+
+      console.log(session.editCode);
+
+    },
+
+    deleteThis(title){
+
+      var localStorage = this.get('localStorage');
+
+      var codeStore = localStorage.getCode();
+
+      var code = codeStore.findBy('title', title);
+
+      localStorage.removeCurrentObejct(code.title);
+
+      this.transitionToRoute('account');
+
     },
 
   }

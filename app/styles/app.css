@@ -311,6 +311,7 @@ nav ul li a:hover {
   padding: 2%;
   transition: 0.5s;
   border-radius: 5px;
+  margin-bottom: 2%;
 }
 
 #submit-button:hover {
@@ -322,6 +323,14 @@ nav ul li a:hover {
 #submit-button a {
   text-decoration: none;
   color: #2e2e2e;
+}
+
+#btnFlex {
+  display: flex;
+}
+
+#btnFlex section {
+  flex: 1;
 }
 
 /*------------------- Submission Page ------------------*/
@@ -340,7 +349,7 @@ nav ul li a:hover {
   color: aliceblue;
 }
 
-#updateClicked {
+.edit-button {
   background-color: #66b3ff;
   font-size: 20px;
   text-align: center;
@@ -352,6 +361,20 @@ nav ul li a:hover {
   border-radius: 5px;
 }
 
+.edit-button1 {
+  background-color: #66b3ff;
+  font-size: 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2%;
+  transition: 0.5s;
+  border-radius: 5px;
+  text-decoration: none;
+  width: 100%;
+
+}
+
 #text-title {
   text-align: center;
 }
@@ -359,9 +382,14 @@ nav ul li a:hover {
 
 /*---------------Table page in account ---------------*/
 
+#contents {
+  width: 100%;
+}
+
+
 #contents table {
   border-collapse: collapse;
-
+  width: 100%;
 }
 
 #contents table th{

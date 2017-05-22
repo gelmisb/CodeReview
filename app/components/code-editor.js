@@ -23,15 +23,28 @@ export default Ember.Component.extend({
     // Setting ediitor to be this instance
     var editor = this.$()[0];
 
-    // Intialising the CodeMirror object
-    var myCodeMirror = CodeMirror.fromTextArea(self.$().get(0),{
-      value: self.get('value'),
-      lineNumbers: true,
-      lineWrapping: true,
-      theme: 'ambiance',
-      firstLineNumber: 1,
-      mode: 'javascript',
-    });
+    if(session.submitted){
+      // Intialising the CodeMirror object
+      var myCodeMirror = CodeMirror.fromTextArea(self.$().get(0),{
+        value: self.get('value'),
+        lineNumbers: true,
+        lineWrapping: true,
+        theme: 'ambiance',
+        firstLineNumber: 1,
+        mode: 'javascript',
+        readOnly: true,
+      });
+    } else {
+      // Intialising the CodeMirror object
+      var myCodeMirror = CodeMirror.fromTextArea(self.$().get(0),{
+        value: self.get('value'),
+        lineNumbers: true,
+        lineWrapping: true,
+        theme: 'ambiance',
+        firstLineNumber: 1,
+        mode: 'javascript',
+      });
+    }
 
     this.set("editor", myCodeMirror);
   },

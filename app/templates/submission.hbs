@@ -5,14 +5,24 @@
   <b>{{session.currentUser}}</b>, your code has been submitted and can now be reviewed below
 </p>
 <div style="text-align:center;">
-  <button  {{action 'updateValue'}} id="updateClicked">Show review</button>
+  <button  {{action 'updateValue'}} class="edit-button" id="updateClicked">Show review</button>
 </div>
 
+<script>
 
-<div id="current-code-field" class="submitted-code-review" >
+  $("#updateClicked").click(function(){
+      $("#current-code-field").show(500);
+      $("#updateClicked").hide(600);
+  });
+</script>
+
+<div id="current-code-field" class="submitted-code-review" hidden>
   {{session.currentTitle}}
 
   {{code-editor}}
+
+  <button  {{action 'changePage'}} style="width: 100%;" class="edit-button">Go back</button>
+
 </div>
 
 {{outlet}}

@@ -26,6 +26,10 @@ export default Ember.Controller.extend({
       var text = editor.setValue(session.currentCode);
 
     },
+
+    changePage() {
+      this.transitionToRoute('account');
+    }
   },
 
 });

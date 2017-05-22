@@ -1,0 +1,24 @@
+
+<h2>Editting {{session.currentTitle}}!</h2>
+
+
+<div style="text-align:center;">
+  <button  {{action 'modifyCode'}} id="updateClicked" class="edit-button">Show code</button>
+</div>
+
+<script>
+
+  $("#updateClicked").click(function(){
+      $("#current-code-field").show(500);
+      $("#updateClicked").hide(600);
+  });
+</script>
+
+<div id="current-code-field" class="submitted-code-review" hidden>
+  {{session.currentTitle}}
+
+  {{code-editor}}
+  <button id="updateClicked" class="edit-button" style="width: 100%" {{action 'updateValue'}}>Submit</button>
+
+</div>
+{{outlet}}
