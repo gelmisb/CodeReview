@@ -1,7 +1,7 @@
 # code-review
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This application is based on Ember JS to demonstrate the basic usage and capabilities of this framework. 
+It has ben writtin together with Velocity JS for visual user aid and performance increase 
 
 ## Prerequisites
 
